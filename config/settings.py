@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import ENVIRONMENT as ENVIRONMENT
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -158,8 +158,11 @@ import dj_database_url
 db_from_enb = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_enb)
 
+from environs import Env
 
-if ENVIRONMENT == 'production':
+env = Env()
+env.read_env()
+if env == 'production':
     SECURE_BROWSER_XSS_FILTER = True
     X_FRAME_OPTIONS = 'Deny'
     SECURE_SSL_REDIRECT = True

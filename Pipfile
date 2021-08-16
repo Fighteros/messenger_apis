@@ -12,6 +12,7 @@ django-allauth = "*"
 gunicorn = "*"
 dj-database-url = "*"
 environment = "*"
+environs = "*"
 
 [dev-packages]
 
