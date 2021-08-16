@@ -9,6 +9,8 @@ psycopg2 = "*"
 djangorestframework = "*"
 dj-rest-auth = "*"
 django-allauth = "*"
+gunicorn = "*"
+dj-database-url = "*"
 
 [dev-packages]
 

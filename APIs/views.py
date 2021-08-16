@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import generics
+from rest_framework.permissions import AllowAny
 
 from .models import Chat
 from .serializers import UserSerializer, ChatSerializer
@@ -21,6 +22,7 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
 class ChatList(generics.ListCreateAPIView):
     queryset = Chat.objects.all()
     serializer_class = ChatSerializer
+
 
 class ChatDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Chat.objects.all()
