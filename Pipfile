@@ -11,6 +11,7 @@ dj-rest-auth = "*"
 django-allauth = "*"
 gunicorn = "*"
 dj-database-url = "*"
+environment = "*"
 
 [dev-packages]
 
