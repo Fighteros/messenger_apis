@@ -9,21 +9,21 @@ from .serializers import UserSerializer, ChatSerializer
 # Create your views here.
 
 
-class UserList(generics.ListCreateAPIView):
+class UserList(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
-class ChatList(generics.ListCreateAPIView):
+class ChatList(generics.ListAPIView):
     queryset = Chat.objects.all()
     serializer_class = ChatSerializer
 
 
-class ChatDetail(generics.RetrieveUpdateDestroyAPIView):
+class ChatDetail(generics.RetrieveAPIView):
     queryset = Chat.objects.all()
     serializer_class = ChatSerializer
