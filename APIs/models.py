@@ -1,5 +1,3 @@
-from time import timezone
-
 from django.db import models
 
 
@@ -10,6 +8,11 @@ class Chat(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
+class Message(models.Model):
+    id = models.IntegerField(primary_key=True, blank=False, unique=True)
+    message = models.CharField(blank=False)
 
 
 class ChatHistory(models.Model):
