@@ -14,6 +14,7 @@ dj-database-url = "*"
 environment = "*"
 environs = "*"
 django-heroku = "*"
+drf-writable-nested = "*"
 
 [dev-packages]
 

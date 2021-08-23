@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     'allauth',
     'allauth.account',
-
 ]
 
 MIDDLEWARE = [
@@ -161,4 +160,3 @@ import django_heroku
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-
