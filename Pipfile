@@ -15,6 +15,8 @@ environment = "*"
 environs = "*"
 django-heroku = "*"
 drf-writable-nested = "*"
+pyyaml = "*"
+drf-yasg = "*"
 
 [dev-packages]
 
