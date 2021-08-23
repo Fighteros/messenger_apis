@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$3ccbkxvk5-*c5_b1-#p@s39=bkh-h(%+g!pi8qrv8$jn&q$0v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['morning-caverns-61655.herokuapp.com', 'localhost', '127.0.0.1', '0.0.0.0']
 
