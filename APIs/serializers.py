@@ -2,13 +2,21 @@ from django.contrib.auth.models import User
 from drf_writable_nested import WritableNestedModelSerializer
 from rest_framework import serializers
 
-from APIs.models import ChatHistory, Chat, Message
+from APIs.models import ChatHistory, Chat, Message, UserProfile
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email')
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(many=False, queryset=User.objects.all())
+
+    class Meta:
+        model = UserProfile
+        fields = ('user', 'profile_img', 'uploaded_at',)
 
 
 class ChatSerializer(serializers.ModelSerializer):
@@ -34,12 +42,3 @@ class MessageSerializer(WritableNestedModelSerializer):
     class Meta:
         model = Message
         fields = '__all__'
-
-
-# class MessageSerializer(serializers.ModelSerializer):
-#     sender = serializers.SlugRelatedField(many=False, slug_field='username', queryset=User.objects.all())
-#     receiver = serializers.SlugRelatedField(many=False, slug_field='username', queryset=User.objects.all())
-#
-#     class Meta:
-#         model = Message
-#         fields = ('sender', 'receiver', 'last_message', 'message', 'timestamp',)

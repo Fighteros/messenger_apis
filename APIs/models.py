@@ -1,5 +1,19 @@
 from django.contrib.auth.models import User
+from django.core.files.storage import FileSystemStorage
 from django.db import models
+
+from config import settings
+
+
+def user_dir(instance, filename):
+    return 'profile_pics/user_{0}/{1}'.format(instance.user.id, filename)
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    profile_img = models.FileField(upload_to=user_dir, max_length=254, blank=True,
+                                   storage=FileSystemStorage(base_url=settings.MEDIA_URL), null=True)
 
 
 # ForeignKey means A Many-to-one relationship
@@ -34,6 +48,7 @@ class Message(models.Model):
     # each Message belongs to a ChatHistory
     chat_history = models.ForeignKey(ChatHistory, on_delete=models.CASCADE, related_name="chat_history")
     message = models.CharField(max_length=1200)
+    isRead = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

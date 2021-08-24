@@ -17,6 +17,7 @@ django-heroku = "*"
 drf-writable-nested = "*"
 pyyaml = "*"
 drf-yasg = "*"
+pillow = "*"
 
 [dev-packages]
 
